@@ -11,5 +11,5 @@ public interface CourseService {
     void deleteCourse(Long courseId);
     CourseEntity getCourseById(Long courseId);
     List<CourseEntity> getAllCourses();
-    List<CourseEntity> getCoursesByCategory(Category category);
+   
 }

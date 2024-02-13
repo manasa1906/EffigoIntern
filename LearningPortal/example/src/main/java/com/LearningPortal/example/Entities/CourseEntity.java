@@ -1,7 +1,5 @@
 package com.LearningPortal.example.Entities;
 
-import com.LearningPortal.example.Entities.UserRole;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -15,60 +13,55 @@ import jakarta.persistence.ManyToOne;
 public class CourseEntity {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="Course_id")
-    private Long id;
-	@Column(name="Course_title")
-    private String title;
-	@Column(name="Course_Description")
-    private String description;
-	 @Column(name="Category")
+	
+    private Long courseId;
+	
+    private String courseTitle;
+
+    private String courseDescription;
+
 	  @Enumerated(EnumType.STRING)
 	private Category category;
-	 @Column(name="Author_ID")
+
 	 private Long authorId;
+	    @ManyToOne
+	    @JoinColumn(name = "userId")
+	    private UserEntity user;
+		public Long getCourseId() {
+			return courseId;
+		}
+		public void setCourseId(Long courseId) {
+			this.courseId = courseId;
+		}
+		public String getCourseTitle() {
+			return courseTitle;
+		}
+		public void setCourseTitle(String courseTitle) {
+			this.courseTitle = courseTitle;
+		}
+		public String getCourseDescription() {
+			return courseDescription;
+		}
+		public void setCourseDescription(String courseDescription) {
+			this.courseDescription = courseDescription;
+		}
+		public Category getCategory() {
+			return category;
+		}
+		public void setCategory(Category category) {
+			this.category = category;
+		}
+		public Long getAuthorId() {
+			return authorId;
+		}
+		public void setAuthorId(Long authorId) {
+			this.authorId = authorId;
+		}
+		public UserEntity getUser() {
+			return user;
+		}
+		public void setUser(UserEntity user) {
+			user = user;
+		}
     
-    public Category getCategory() {
-		return category;
-	}
-
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
-	public Long getAuthorId() {
-		return authorId;
-	}
-
-	public void setAuthorId(Long authorId) {
-		this.authorId = authorId;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
-	
-
-
 }
