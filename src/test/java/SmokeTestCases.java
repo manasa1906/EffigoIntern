@@ -24,5 +24,6 @@ public class SmokeTestCases {
 	@Test(enabled = true, groups = { "acceptance-smoke" })
 	public void test5() {
 		System.out.println("testcase5-smoke");
+		System.out.println("testcase5-smoke");
 	}
 }
